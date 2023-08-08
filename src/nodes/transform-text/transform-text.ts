@@ -24,11 +24,21 @@ const nodeInit: NodeInitializer = (RED): void => {
         this.on("input", (msg, send, done) => {
           if (typeof msg.payload === "string") {
             msg.payload = msg.payload.toLowerCase();
+            msg.payload = msg.payload
           }
           send(msg);
           done();
         });
         break;
+      }
+      case TransformTextOperation.Split: {
+        this.on("input", (msg, send, done) => {
+          if (typeof msg.payload === "string") {
+            msg.payload = msg.payload.split(" ");
+          }
+          send(msg);
+          done();
+        });
       }
     }
   }

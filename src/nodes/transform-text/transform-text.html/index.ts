@@ -1,15 +1,16 @@
 import { EditorRED } from "node-red";
 import { TransformTextEditorNodeProperties } from "./modules/types";
-import { TransformTextOperation } from "../shared/types";
+import { TransformTextOperation, TransformTextSeparator } from "../shared/types";
 
 declare const RED: EditorRED;
 
 RED.nodes.registerType<TransformTextEditorNodeProperties>("transform-text", {
   category: "function",
-  color: "#a6bbcf",
+  color: "#37C7A3",
   defaults: {
     operation: { value: TransformTextOperation.UpperCase },
     name: { value: "" },
+    separator: {value: TransformTextSeparator.Space}
   },
   inputs: 1,
   outputs: 1,
@@ -25,6 +26,9 @@ RED.nodes.registerType<TransformTextEditorNodeProperties>("transform-text", {
       }
       case TransformTextOperation.LowerCase: {
         return "to lower case";
+      }
+      case TransformTextOperation.Split: {
+        return "split";
       }
     }
   },
