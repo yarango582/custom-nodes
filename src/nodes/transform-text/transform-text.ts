@@ -34,7 +34,7 @@ const nodeInit: NodeInitializer = (RED): void => {
       case TransformTextOperation.Split: {
         this.on("input", (msg, send, done) => {
           if (typeof msg.payload === "string") {
-            msg.payload = msg.payload.split(" ");
+            msg.payload = msg.payload.split(config.separator);
           }
           send(msg);
           done();
