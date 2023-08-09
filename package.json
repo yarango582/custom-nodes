@@ -1,6 +1,6 @@
 {
   "name": "custom-nodes-integrator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Nodes for test purposes",
   "scripts": {
     "add-node": "node ./utils/add-node.js",
